@@ -3,12 +3,12 @@ import Main from "./components/pages/main/main";
 import MissingPage from "./components/pages/missingpage/missingPage";
 import Tables from "./components/pages/tables/tables";
 import Footer from "./components/views/footer/footer";
-import NavBar from "./components/views/NavBar/NavBar";
+import Header from "./components/views/header/header";
 
 function App() {
   return (
     <div>
-      <NavBar />
+      <Header />
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/tables/:id" element={<Tables />} />
