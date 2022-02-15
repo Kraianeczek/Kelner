@@ -1,4 +1,5 @@
 import { Container, Navbar } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 import styles from './NavBar.module.scss'
 
 const NavBar = () => {
@@ -6,8 +7,8 @@ const NavBar = () => {
         <div>
             <Navbar bg="primary">
                 <Container>
-                    <h5 className={styles.h5}>Waiter.app</h5>
-                    <h6 className={styles.h6}>Home</h6>
+                    <h5><NavLink className={styles.h5} to="/">Waiter.app</NavLink></h5>
+                    <h6><NavLink  className={styles.h6} to="/">Home</NavLink></h6>
                 </Container>
             </Navbar>
         </div>
