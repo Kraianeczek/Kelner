@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Main from "./components/pages/main/main";
 import MissingPage from "./components/pages/missingpage/missingPage";
 import Tables from "./components/pages/tables/tables";
+import Footer from "./components/views/footer/footer";
 import NavBar from "./components/views/NavBar/NavBar";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
           <Route path="/tables/:id" element={<Tables />} />
           <Route path="*" element={<MissingPage />} />
         </Routes>
+      <Footer />
     </div>
   );
 }
