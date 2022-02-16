@@ -6,21 +6,12 @@ import MissingPage from "./components/pages/missingpage/missingPage";
 import Tables from "./components/pages/tables/tables";
 import Footer from "./components/views/footer/footer";
 import Header from "./components/views/header/header";
-import { uploadTables } from "./redux/tablesRedux";
+import { fetchTables } from "./redux/tablesRedux";
 
 function App() {
   
-const dispatch = useDispatch();
-const url = "http://localhost:3131/api/tables";
-const fetchTables = () => {
-  fetch(url)
-  .then(res => res.json())
-  .then(tables => dispatch(uploadTables(tables)))
-  };
-
-  useEffect(fetchTables, [dispatch]);
-
-
+  const dispatch = useDispatch();
+  useEffect(() => dispatch(fetchTables()), [dispatch]);
 
   return (
     <div>
