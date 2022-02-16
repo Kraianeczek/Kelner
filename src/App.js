@@ -3,9 +3,9 @@ import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import Main from "./components/pages/main/main";
 import MissingPage from "./components/pages/missingpage/missingPage";
-import Tables from "./components/pages/tables/tables";
 import Footer from "./components/views/footer/footer";
 import Header from "./components/views/header/header";
+import Tables from "./components/views/tables/tables";
 import { fetchTables } from "./redux/tablesRedux";
 
 function App() {
