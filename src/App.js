@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
-import Dropdown from "./components/common/dropdown/dropdown";
 import Main from "./components/pages/main/main";
 import MissingPage from "./components/pages/missingpage/missingPage";
 import Footer from "./components/views/footer/footer";
@@ -25,7 +24,6 @@ function App() {
         </Routes>
       <Footer />
       <SingleTable />
-      <Dropdown />
     </div>
   );
 }

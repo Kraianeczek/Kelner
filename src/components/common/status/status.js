@@ -1,13 +1,11 @@
 import styles from './status.module.scss'
 
-const Status = () => {
+const Status = props => {
+
     return(
-            <select className={styles.select}>
-                <option>Busy</option>
-                <option>Free</option>
-                <option>Reserved</option>
-                <option>Cleaning</option>
-            </select>
+        <select className={styles.select}>
+            <option>{props.children}</option>     
+        </select>
     )
 }
 
