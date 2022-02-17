@@ -9,10 +9,7 @@ import { useParams } from 'react-router';
 const SingleTable = () => {
     
     const tables = useSelector (state => state.tables)
-    console.log('tabls', tables);
-
     const { id } = useParams();
-    console.log('list', id);
     
     return (
         <div>

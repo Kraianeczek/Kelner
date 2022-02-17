@@ -24,7 +24,6 @@ function App() {
           <Route path="*" element={<MissingPage />} />
         </Routes>
       <Footer />
-      <SingleTable />
     </div>
   );
 }
