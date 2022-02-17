@@ -4,15 +4,19 @@ import ClientsNumber from "../../common/clientsNumber/clientsNumber";
 import Status from "../../common/status/status";
 import styles from './singleTable.module.scss'
 import { useSelector } from "react-redux";
+import { useParams } from 'react-router';
 
 const SingleTable = () => {
     
     const tables = useSelector (state => state.tables)
     console.log('tabls', tables);
 
+    const { id } = useParams();
+    console.log('list', id);
+    
     return (
         <div>
-            {tables.filter(table => table.id === 4).map(table => 
+            {tables.filter(table => table.id === id).map(table => 
                 <div>
                     <h1>Table {table.id}</h1>
                     <h5 className={styles.subtitle}>Status: <Status> {table.status}</Status></h5>

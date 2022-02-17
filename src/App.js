@@ -6,7 +6,6 @@ import MissingPage from "./components/pages/missingpage/missingPage";
 import Footer from "./components/views/footer/footer";
 import Header from "./components/views/header/header";
 import SingleTable from "./components/views/singleTable/singleTable";
-import Tables from "./components/views/tables/tables";
 import { fetchOptions } from "./redux/optionsRedux";
 import { fetchTables } from "./redux/tablesRedux";
 
@@ -21,7 +20,7 @@ function App() {
       <Header />
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/tables/:id" element={<Tables />} />
+          <Route path="/tables/:id" element={<SingleTable />} />
           <Route path="*" element={<MissingPage />} />
         </Routes>
       <Footer />
