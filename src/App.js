@@ -7,12 +7,14 @@ import Footer from "./components/views/footer/footer";
 import Header from "./components/views/header/header";
 import SingleTable from "./components/views/singleTable/singleTable";
 import Tables from "./components/views/tables/tables";
+import { fetchOptions } from "./redux/optionsRedux";
 import { fetchTables } from "./redux/tablesRedux";
 
 function App() {
   
   const dispatch = useDispatch();
   useEffect(() => dispatch(fetchTables()), [dispatch]);
+  useEffect(() => dispatch(fetchOptions()), [dispatch])
 
   return (
     <div>

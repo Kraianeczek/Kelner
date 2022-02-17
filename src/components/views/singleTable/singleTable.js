@@ -12,7 +12,7 @@ const SingleTable = () => {
 
     return (
         <div>
-            {tables.map(table => 
+            {tables.filter(table => table.id === 4).map(table => 
                 <div>
                     <h1>Table {table.id}</h1>
                     <h5 className={styles.subtitle}>Status: <Status> {table.status}</Status></h5>

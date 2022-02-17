@@ -10,7 +10,7 @@ const Table = () => {
     return(
         <div>
             Stoliki
-            {tables.map(table => 
+            {tables.map(table =>
                 <div className={styles.container}>
                     <span >
                         <h3 className={styles.inline}>Table {table.id}</h3>

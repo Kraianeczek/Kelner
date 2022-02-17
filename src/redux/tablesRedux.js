@@ -23,4 +23,5 @@ const tablesReducer = (statePart = [], action) => {
       return statePart;
   };
 };
+
 export default tablesReducer;
