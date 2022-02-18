@@ -18,7 +18,7 @@ const SingleTable = () => {
     
     const handleSubmit = e => {
         e.preventDefault();
-        dispatch(updateStatus({id,status}))
+        dispatch(updateStatus({ id, status }))
     }
 
     return (

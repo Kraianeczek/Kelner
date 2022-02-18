@@ -4,8 +4,7 @@ import styles from './billNumber.module.scss'
 
 const BillNumber = props => {
 
-    let val = props.children;
-    const [value, setValue] = useState(val);
+    const [value, setValue] = useState(props.children);
     
     return(
         <span>
