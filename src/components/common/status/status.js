@@ -6,7 +6,7 @@ const Status = props => {
     const x = useSelector(state => state.options);
 
     return(
-        <select className={styles.select}>
+        <select className={styles.select} onChange={props.onChange}>
         <option>{props.children}</option>
         {x.map(it => 
             <option>{it.op}</option>)}  

@@ -18,7 +18,7 @@ const SingleTable = () => {
     
     const handleSubmit = e => {
         e.preventDefault();
-        dispatch(updateStatus(status))
+        dispatch(updateStatus({id,status}))
     }
 
     return (
@@ -26,10 +26,10 @@ const SingleTable = () => {
             {tables.filter(table => table.id === id).map(table => 
                 <div>
                     <h1>Table {table.id}</h1>
-                    <h5 className={styles.subtitle}>Status: <Status value={status} onChange={e => setStatus(e.target.value)}> {table.status}</Status></h5>
+                    <h5 className={styles.subtitle}>Status: <Status value={status} onChange={e => {setStatus(e.target.value)}}> {table.status}</Status></h5>
                     <h5 className={styles.subtitle}>People: <ClientsNumber>{table.peopleAmount}</ClientsNumber> / <ClientsNumber>{table.maxPeopleAmount}</ClientsNumber> </h5>
                     <h5 className={styles.subtitle}>Bill: <BillNumber>{table.bill}</BillNumber></h5>
-                    <Button onSubmit={handleSubmit}>Update</Button>
+                    <Button onClick={handleSubmit}>Update</Button>
                 </div>      
             )}
         </div>

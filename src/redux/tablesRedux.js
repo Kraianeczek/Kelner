@@ -22,7 +22,8 @@ const tablesReducer = (statePart = [], action) => {
     case UPLOAD_TABLES:
       return [...action.payload];
     case UPDATE_STATUS:
-      return [...action.payload];
+      statePart.filter(it => it.id === action.payload.id)[0].status = action.payload.status;
+      return statePart;
     default:
       return statePart;
   };
