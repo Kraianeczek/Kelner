@@ -25,7 +25,8 @@ const SingleTable = () => {
     const [clients, setClients] = useState('');
     const [maxClients, setMaxClients] = useState('');
     
-    const handleSubmit = e => {
+    const handleSubmit = (table, e) => {
+        if (bill === '') { setBill(table.bill)};
         e.preventDefault();
         dispatch(updateInfo({ id, status, bill, clients, maxClients }))
     }
@@ -35,10 +36,21 @@ const SingleTable = () => {
             {tables.filter(table => table.id === id).map(table => 
                 <div>
                     <h1>Table {table.id}</h1>
-                    <h5 className={styles.subtitle}>Status: <Status value={status || table.status} onChange={e => {setStatus(e.target.value)}}> {table.status}</Status></h5>
-                    <h5 className={styles.subtitle}>People: <Clients value={clients || table.peopleAmount} onChange={e => setClients(e.target.value)}>{table.peopleAmount}</Clients> / <MaxClients value={maxClients || table.maxPeopleAmount} onChange={e => setMaxClients(e.target.value)}>{table.maxPeopleAmount}</MaxClients> </h5>
-                    <h5 className={styles.subtitle}>Bill: <BillNumber value={bill || table.bill} onChange={(e) => setBill(e.target.value)} ></BillNumber></h5>
-                    <Button onClick={handleSubmit}><NavLink className={styles.navLink} to="/"> Update</NavLink></Button>
+                    <h5 className={styles.subtitle}>Status: <Status value={status || table.status} 
+                        onChange={e => {
+                            setStatus(e.target.value);
+                            // if (e.target.value === "Busy") {
+                            //     table.bill = 0;
+                            // } else table.bill = '';
+                            // (e.target.value === "Busy") ? table.bill = 0 : table.bill ='';
+                            // if (e.target.value === "Cleaning" || "Free") {
+                            //     table.clients = 0;
+                            // } 
+                            // (e.target.value === "Cleaning" || "Free") ? table.clients = 0 : table.clients = table.clients;
+                        }}>{table.status}</Status></h5>
+                    <h5 className={styles.subtitle}>People: <Clients value={clients || table.peopleAmount} onChange={e => setClients(e.target.value)} /> / <MaxClients value={maxClients || table.maxPeopleAmount} onChange={e => setMaxClients(e.target.value)} /></h5>
+                    <h5 className={styles.subtitle}>Bill: <BillNumber value={bill || table.bill} onChange={e => setBill(e.target.value)} ></BillNumber></h5>
+                    <Button onClick={() => handleSubmit(table)}><NavLink className={styles.navLink} to="/"> Update</NavLink></Button>
                 </div>      
             )}
         </div>
