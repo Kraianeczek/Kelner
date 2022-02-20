@@ -6,7 +6,7 @@ import styles from './singleTable.module.scss'
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router';
 import { useState } from "react";
-import { updateInfo } from "../../../redux/tablesRedux";
+import { updateTables } from "../../../redux/tablesRedux";
 import { NavLink } from "react-router-dom";
 import MaxClients from "../../common/maxClients/maxClients";
 
@@ -16,7 +16,6 @@ const SingleTable = () => {
     const { id } = useParams();
     const wynik = tables.filter(table => table.id === id).length >0;
     if (!wynik) {
-        
     }
 
     const dispatch = useDispatch();
@@ -34,7 +33,7 @@ const SingleTable = () => {
             clients: clients || table.peopleAmount,
             maxClients: maxClients || table.maxPeopleAmount
         }
-        dispatch(updateInfo( noweDane ))
+        dispatch(updateTables( noweDane ))
         console.log('button');
     }
 
@@ -53,12 +52,12 @@ const SingleTable = () => {
                         onChange={e => {
                             setClients(e.target.value);
                             if (e.target.value > table.maxPeopleAmount) { table.maxPeopleAmount = e.target.value };
-                            if (e.target.value > MaxClients.target.value) { table.maxPeopleAmount = e.target.value}
+                            if (e.target.value > maxClients.target.value) { table.maxPeopleAmount = e.target.value}
                         }} /> / <MaxClients value={maxClients || table.maxPeopleAmount} 
                         onChange={e => {
                             setMaxClients(e.target.value); 
                             if (e.target.value < table.peopleAmount) { table.peopleAmount = e.target.value };
-                            if (e.target.value < Clients.target.value) { table.peopleAmount = e.target.value}
+                            if (e.target.value < clients.target.value) { table.peopleAmount = e.target.value}
                             }} /></h5>
                     <h5 className={styles.subtitle}>Bill: <BillNumber value={bill || table.bill} onChange={e => setBill(e.target.value)} ></BillNumber></h5>
                     <Button onClick={() => handleSubmit(table)}><NavLink className={styles.navLink} to="/"> Update</NavLink></Button>

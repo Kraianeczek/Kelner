@@ -1,5 +1,5 @@
 {
-"tables": [
+  "tables": [
     {
       "id": "1",
       "status": "Busy",
@@ -29,12 +29,22 @@
       "bill": 0
     }
   ],
-
-  
   "options": [
-    {"id": 1, "op": "Free"},
-    {"id": 2, "op": "Busy"},
-    {"id": 3, "op": "Reserved"},
-    {"id": 4, "op": "Cleaning"}
-    ]
+    {
+      "id": 1,
+      "op": "Free"
+    },
+    {
+      "id": 2,
+      "op": "Busy"
+    },
+    {
+      "id": 3,
+      "op": "Reserved"
+    },
+    {
+      "id": 4,
+      "op": "Cleaning"
+    }
+  ]
 }
