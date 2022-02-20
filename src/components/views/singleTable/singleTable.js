@@ -25,10 +25,17 @@ const SingleTable = () => {
     const [clients, setClients] = useState('');
     const [maxClients, setMaxClients] = useState('');
     
-    const handleSubmit = (table, e) => {
-        if (bill === '') { setBill(table.bill)};
-        e.preventDefault();
-        dispatch(updateInfo({ id, status, bill, clients, maxClients }))
+    const handleSubmit = (table) => {
+        // if (bill === '') { setBill(table.bill)};
+        const noweDane = { 
+            id,
+            bill: bill || table.bill,
+            status: status || table.status,
+            clients: clients || table.peopleAmount,
+            maxClients: maxClients || table.maxPeopleAmount
+        }
+        dispatch(updateInfo( noweDane ))
+        console.log('button');
     }
 
     return (
@@ -39,16 +46,20 @@ const SingleTable = () => {
                     <h5 className={styles.subtitle}>Status: <Status value={status || table.status} 
                         onChange={e => {
                             setStatus(e.target.value);
-                            // if (e.target.value === "Busy") {
-                            //     table.bill = 0;
-                            // } else table.bill = '';
-                            // (e.target.value === "Busy") ? table.bill = 0 : table.bill ='';
-                            // if (e.target.value === "Cleaning" || "Free") {
-                            //     table.clients = 0;
-                            // } 
-                            // (e.target.value === "Cleaning" || "Free") ? table.clients = 0 : table.clients = table.clients;
+                            (e.target.value === "Busy") ? table.bill = 0 : table.bill ='';
+                            (e.target.value === "Cleaning" || e.target.value === "Free") ? table.peopleAmount = 0 : table.peopleAmount = table.clients;
                         }}>{table.status}</Status></h5>
-                    <h5 className={styles.subtitle}>People: <Clients value={clients || table.peopleAmount} onChange={e => setClients(e.target.value)} /> / <MaxClients value={maxClients || table.maxPeopleAmount} onChange={e => setMaxClients(e.target.value)} /></h5>
+                    <h5 className={styles.subtitle}>People: <Clients value={clients || table.peopleAmount} 
+                        onChange={e => {
+                            setClients(e.target.value);
+                            if (e.target.value > table.maxPeopleAmount) { table.maxPeopleAmount = e.target.value };
+                            if (e.target.value > MaxClients.target.value) { table.maxPeopleAmount = e.target.value}
+                        }} /> / <MaxClients value={maxClients || table.maxPeopleAmount} 
+                        onChange={e => {
+                            setMaxClients(e.target.value); 
+                            if (e.target.value < table.peopleAmount) { table.peopleAmount = e.target.value };
+                            if (e.target.value < Clients.target.value) { table.peopleAmount = e.target.value}
+                            }} /></h5>
                     <h5 className={styles.subtitle}>Bill: <BillNumber value={bill || table.bill} onChange={e => setBill(e.target.value)} ></BillNumber></h5>
                     <Button onClick={() => handleSubmit(table)}><NavLink className={styles.navLink} to="/"> Update</NavLink></Button>
                 </div>      

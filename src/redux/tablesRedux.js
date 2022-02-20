@@ -3,7 +3,7 @@
 // actions
 const createActionName = actionName => `app/tables/${actionName}`;
 const UPLOAD_TABLES = createActionName('UPLOAD_TABLES');
-const UPDATE_INFO = createActionName('UPDATE_STATUS');
+const UPDATE_INFO = createActionName('UPDATE_INFO');
 
 // action creators
 export const uploadTables = payload => ({ type: UPLOAD_TABLES, payload });
