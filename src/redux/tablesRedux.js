@@ -8,7 +8,7 @@ const UPDATE_INFO = createActionName('UPDATE_INFO');
 // action creators
 export const uploadTables = payload => ({ type: UPLOAD_TABLES, payload });
 export const updateInfo = payload => ({ type: UPDATE_INFO, payload });
-const url = "http://localhost:3131/api/tables";
+const url = "/api/tables";
 export const fetchTables = () => {
   return (dispatch) => {
     fetch(url)
@@ -27,7 +27,7 @@ export const updateTables = (noweDane) => {
       body: JSON.stringify(noweDane),
     };
 
-    fetch(url, options)
+    fetch(url + '/' + noweDane.id, options)
       .then(() => dispatch(updateInfo(noweDane)))
   }
 }
